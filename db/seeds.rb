@@ -1,8 +1,55 @@
+Category.destroy_all
 User.destroy_all
 
-tim=User.create(email:"timdevries@gmail.com", password:"hallo123")
+tim=User.create!(
+email:"timdevries@gmail.com",
+password:"hallo123"
+)
 
-event=Event.create(name:"Best event of the year", description: "You don't want to miss this event,
-it is the best one you'll find this year! Please come!", location: "Sarphatipark 116, 1073ED Amsterdam",
-price: 75, capacity: 100, includes_food: true, includes_drinks: true, starts_at: DateTime.new(2017,10,30,20,30,0),
-ends_at: DateTime.new(2017,11,5,5,0,0), active: true, user: tim)
+Event.create!(
+name:"Best event of the year",
+description: "You don't want to miss this event,
+it is the best one you'll find this year! Please come!",
+location: "Sarphatipark 116, 1073ED Amsterdam",
+price: 75.00,
+capacity: 100,
+includes_food: true,
+includes_drinks: true,
+starts_at: DateTime.new(2017,10,30,20,30,0),
+ends_at: DateTime.new(2017,11,5,5,0,0),
+active: true,
+user: tim
+)
+
+Event.create!(
+name:"Beer and Football Weekend",
+description: "It is time for the yearly beer and football weekend!
+Please bring your own food.",
+location: "Amsterdam Arena, 1088ED Amsterdam",
+price: 35.00,
+capacity: 50,
+includes_food: false,
+includes_drinks: true,
+starts_at: DateTime.new(2017,5,10,12,00,0),
+ends_at: DateTime.new(2017,5,12,12,0,0),
+active: true,
+user: tim
+)
+
+
+Category.create!([
+   { name: "Movements" },
+   { name: "Outdoors & Adventure" },
+   { name: "Tech" },
+   { name: "Family" },
+   { name: "Health & Wellness" },
+   { name: "Sports & Fitness" },
+   { name: "Learning" },
+   { name: "Photography" },
+   { name: "Food & Drink" },
+ ])
+
+ event = Event.find_by(name: "Beer and Football Weekend")
+ event.categories << Category.find_by(name: "Outdoors & Adventure")
+ event.categories << Category.find_by(name: "Sports & Fitness")
+ event.categories << Category.find_by(name: "Food & Drink")
