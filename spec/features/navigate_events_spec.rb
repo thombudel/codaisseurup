@@ -9,7 +9,7 @@ describe "Navigating events" do
   it "allows navigation from the event detail page to the events page" do
     visit event_url(event)
 
-    click_link "Back"
+    click_link "Back to Events"
 
     expect(current_path).to eq(events_path)
   end
@@ -17,7 +17,7 @@ describe "Navigating events" do
     it "allows navigation from the events page to the event detail page" do
     visit events_url
 
-    click_link "View"
+    click_link "View Event"
 
     expect(current_path).to eq(event_path(event))
   end
