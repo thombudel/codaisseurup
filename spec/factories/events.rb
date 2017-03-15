@@ -4,7 +4,7 @@ FactoryGirl.define do
       description     {Faker::Lorem.sentence(30)}
       location        {Faker::Address.city}
       price           {Faker::Commerce.price}
-      capacity        {Faker::Number.between(0-500)}
+      capacity        {Faker::Number.between(0,500)}
       includes_food   true
       includes_drinks false
       starts_at       10.days.from_now

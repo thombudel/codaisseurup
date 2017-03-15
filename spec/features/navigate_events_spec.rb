@@ -15,7 +15,7 @@ describe "Navigating events" do
   end
 
     it "allows navigation from the events page to the event detail page" do
-    visit events_url
+    visit events_path
 
     click_link "View Event"
 
