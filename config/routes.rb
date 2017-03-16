@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :events
   resources :profiles, only: [:new, :edit, :create, :update]
   get "about" => "pages#about"
+  get "contact" => "pages#contact"
 end
