@@ -10,12 +10,17 @@ email:"timdevries@gmail.com",
 password:"hallo123"
 )
 
+piet=User.create!(
+email:"pietdevries@gmail.com",
+password:"hallo123"
+)
+
 
 
 photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671130/2014_06_BMBC_VCBW-8961_xo33bx.jpg")
 photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671304/Party_Dream_Color_party_ercym8.jpg")
 photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671204/images_c3ptbn.jpg")
-
+photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671269/birthday-packages_ndu0wv.jpg")
 
 
 Event.create!(
@@ -48,6 +53,21 @@ ends_at: DateTime.new(2017,5,12,12,0,0),
 active: true,
 user: tim,
 photos: [photo2, photo3]
+)
+
+Event.create!(
+name:"Piet's Birthday",
+description: "It's my Birthday!!!",
+location: "Sarphatipark 116, 1073ED Amsterdam",
+price: 5.00,
+capacity: 10,
+includes_food: true,
+includes_drinks: true,
+starts_at: DateTime.new(2017,10,30,20,30,0),
+ends_at: DateTime.new(2017,11,5,5,0,0),
+active: true,
+user: piet,
+photos: [photo1]
 )
 
 
