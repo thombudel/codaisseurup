@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @categories = @event.categories
+    
   end
 
   def new

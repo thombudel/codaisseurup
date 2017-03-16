@@ -1,10 +1,22 @@
-Category.destroy_all
-User.destroy_all
+Photo.delete_all
+Category.delete_all
+Event.delete_all
+Profile.delete_all
+User.delete_all
+
 
 tim=User.create!(
 email:"timdevries@gmail.com",
 password:"hallo123"
 )
+
+
+
+photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671130/2014_06_BMBC_VCBW-8961_xo33bx.jpg")
+photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671304/Party_Dream_Color_party_ercym8.jpg")
+photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671204/images_c3ptbn.jpg")
+
+
 
 Event.create!(
 name:"Best event of the year",
@@ -18,7 +30,8 @@ includes_drinks: true,
 starts_at: DateTime.new(2017,10,30,20,30,0),
 ends_at: DateTime.new(2017,11,5,5,0,0),
 active: true,
-user: tim
+user: tim,
+photos: [photo1]
 )
 
 Event.create!(
@@ -33,7 +46,8 @@ includes_drinks: true,
 starts_at: DateTime.new(2017,5,10,12,00,0),
 ends_at: DateTime.new(2017,5,12,12,0,0),
 active: true,
-user: tim
+user: tim,
+photos: [photo2, photo3]
 )
 
 
@@ -48,6 +62,7 @@ Category.create!([
    { name: "Photography" },
    { name: "Food & Drink" },
  ])
+
 
  event = Event.find_by(name: "Beer and Football Weekend")
  event.categories << Category.find_by(name: "Outdoors & Adventure")
