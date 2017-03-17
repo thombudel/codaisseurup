@@ -10,11 +10,24 @@ email:"timdevries@gmail.com",
 password:"hallo123"
 )
 
+profile_tim=Profile.create(
+first_name: "Tim",
+last_name: "de Vries",
+bio: "Hallo mijn naam is Tim de Vries.",
+user: tim
+)
+
 piet=User.create!(
 email:"pietdevries@gmail.com",
 password:"hallo123"
 )
 
+profile_piet=Profile.create(
+first_name: "Piet",
+last_name: "de Vries",
+bio: "Hallo mijn naam is Piet de Vries.",
+user: piet
+)
 
 
 photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671130/2014_06_BMBC_VCBW-8961_xo33bx.jpg")
