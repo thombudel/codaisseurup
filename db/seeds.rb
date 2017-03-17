@@ -1,9 +1,9 @@
+Profile.delete_all
+Registration.delete_all
 Photo.delete_all
 Category.delete_all
 Event.delete_all
-Profile.delete_all
 User.delete_all
-
 
 tim=User.create!(
 email:"timdevries@gmail.com",
@@ -36,7 +36,7 @@ photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/ima
 photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671269/birthday-packages_ndu0wv.jpg")
 
 
-Event.create!(
+event1=Event.create!(
 name:"Best event of the year",
 description: "You don't want to miss this event,
 it is the best one you'll find this year! Please come!",
@@ -52,7 +52,7 @@ user: tim,
 photos: [photo1]
 )
 
-Event.create!(
+event2=Event.create!(
 name:"Beer and Football Weekend",
 description: "It is time for the yearly beer and football weekend!
 Please bring your own food.",
@@ -68,7 +68,7 @@ user: tim,
 photos: [photo2, photo3]
 )
 
-Event.create!(
+event3=Event.create!(
 name:"Piet's Birthday",
 description: "It's my Birthday!!!",
 location: "Sarphatipark 116, 1073ED Amsterdam",
@@ -82,6 +82,8 @@ active: true,
 user: piet,
 photos: [photo1]
 )
+
+puts "#{Event.all.size} events created"
 
 
 Category.create!([
@@ -101,3 +103,12 @@ Category.create!([
  event.categories << Category.find_by(name: "Outdoors & Adventure")
  event.categories << Category.find_by(name: "Sports & Fitness")
  event.categories << Category.find_by(name: "Food & Drink")
+
+ ## registrations
+
+ Registration.create([
+  { event: event1, user: wouter, price: event.price, registered_at: 2.days.ago, guests_count: 1 },
+  { event: event2, user: mat, price: event.price, registered_at: 10.days.ago, guests_count: 3 },
+  ])
+
+  puts "#{Registration.all.size} registrations created"

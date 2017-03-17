@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show]
-  resources :events
+  resources :events do
+    resources :registrations, only: [:create]
+  end
   resources :profiles, only: [:new, :edit, :create, :update]
   resources :photos
   get "about" => "pages#about"
   get "contact" => "pages#contact"
+
+
 
 end
