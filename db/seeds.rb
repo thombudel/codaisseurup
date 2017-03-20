@@ -29,12 +29,27 @@ bio: "Hallo mijn naam is Piet de Vries.",
 user: piet
 )
 
+#photos
 
 photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671130/2014_06_BMBC_VCBW-8961_xo33bx.jpg")
 photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671304/Party_Dream_Color_party_ercym8.jpg")
 photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671204/images_c3ptbn.jpg")
 photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/deu9tctoc/image/upload/v1489671269/birthday-packages_ndu0wv.jpg")
 
+#registrations
+
+=begin
+registation1=Registration.create!(
+event: event1,
+user: event1.user,
+price: event1.price,
+starts_at: event
+)
+=end
+
+
+
+#events
 
 event1=Event.create!(
 name:"Best event of the year",
